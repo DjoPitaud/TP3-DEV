@@ -1,10 +1,6 @@
-import os
-import socket
-import re
 import psutil
-from sys import argv
 from socket import AF_INET
-import pprint
+
 
 def getNetworkInfo():
     
