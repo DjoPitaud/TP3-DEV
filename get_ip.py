@@ -2,7 +2,7 @@ import psutil
 from socket import AF_INET
 
 
-def getNetworkInfo():
+def getIp():
     
     nic_data = psutil.net_if_addrs()
     for nic_name in nic_data.keys():
@@ -18,5 +18,5 @@ def getNetworkInfo():
     print(f"{address}/{cidr}")
     print(f"{nb_addr} adresses")
     
-getNetworkInfo()
+getIp()
 
