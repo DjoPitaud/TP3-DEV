@@ -12,17 +12,23 @@ def ip_valid(ip: str) -> bool:
 
 
 
-ip_address = argv[1]
+arg = argv[1]
     
     
-if not ip_valid(ip_address):
+if not ip_valid(arg):
     print("Adresse IP non valide.")
 else:
+     response = os.system(f"ping -n 1 -w 500 {arg} > NUL 2>&1")
+
+     if response == 0:
+         print("UP!")
+     else:
+         print("DOWN!")
+    
+         
+
+    
+    
         
-    response = os.system(f"ping -n 4 {ip_address}")
-        
-        
-    if response == 0:
-        print("UP !")
-    else:
-        print("DOWN !")
+   
+    
