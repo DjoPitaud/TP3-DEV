@@ -1,5 +1,3 @@
-import os
-import socket
 import is_up
 import get_ip
 import lookup 
@@ -7,6 +5,7 @@ from sys import argv, exit
 
 
 def main():
+    
     if not argv[1]:
         print("You must input a command (ip, lookup, ping)")
         exit(1)
@@ -18,29 +17,22 @@ def main():
             if not argv[2]:
                 print("You must input an IP address.")
                 exit(2)
-            
-            is_up.is_up()
+            else:
+                
+                is_up.is_up()
 
         case "lookup":
             if not argv[2]:
                 print("You must input a hostname.")
                 exit(2)
+            else:
 
-            if not lookup.is_valid_domain(arg):
-                print(f"nom de domaine valide.")
-                exit(3)
-            try:
-                ip_address = socket.gethostbyname(arg)
-                print(ip_address)
-            except socket.gaierror:
-                print("Erreur lors de la résolution du nom de domaine.")
-                exit(4)
+                lookup.lookup()
 
         case "ip":
             get_ip.getIp()
-main()
 
-            
+         
     
             
 

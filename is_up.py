@@ -12,18 +12,21 @@ def ip_valid(ip: str) -> bool:
 
 
 
-arg = argv[1]
+subcommand = argv[2]
     
-    
-if not ip_valid(arg):
-    print("Adresse IP non valide.")
-else:
-     response = os.system(f"ping -n 1 -w 500 {arg} > NUL 2>&1")
+def is_up():   
+    if not ip_valid(subcommand):
+        print("Adresse IP non valide.")
+        exit(3)
+    else:
+        response = os.system(f"ping -n 1 -w 500 {subcommand} > NUL 2>&1")
 
-     if response == 0:
-         print("UP!")
-     else:
-         print("DOWN!")
+        if response == 0:
+            print("UP!")
+        else:
+            print("DOWN!")
+
+is_up()
     
          
 

@@ -18,5 +18,5 @@ def getIp():
     print(f"{address}/{cidr}")
     print(f"{nb_addr} adresses")
     
-getIp()
+
 
