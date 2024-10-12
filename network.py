@@ -19,16 +19,7 @@ def main():
                 print("You must input an IP address.")
                 exit(2)
             
-            if not is_up.ip_valid(subcommand):
-                print("Veuillez rentrer une ip valide.")
-                exit(3)
-            else: 
-                response = os.system(f"ping -n 4 {subcommand} > NUL 2>&1")
-
-                if response == 0:
-                    print("UP !")
-                else:
-                    print("DOWN !")
+            is_up.is_up()
 
         case "lookup":
             if not argv[2]:
@@ -47,6 +38,7 @@ def main():
 
         case "ip":
             get_ip.getIp()
+main()
 
             
     
