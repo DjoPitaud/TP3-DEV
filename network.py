@@ -10,7 +10,8 @@ def main():
         print("You must input a command (ip, lookup, ping)")
         exit(1)
 
-    subcommand = argv[1]
+    subcommand = argv[1].lower()
+    
 
     match subcommand:
         case "ping":
@@ -32,7 +33,7 @@ def main():
         case "ip":
             get_ip.getIp()
 
-         
-    
+if __name__ == "__main__":
+    main()
             
 

@@ -8,18 +8,16 @@ def is_valid_domain(domain: str) -> bool:
     return bool(domain_pattern.match(domain))
 
 def lookup():
-    if len(subcommand) < 2:
-        print("Veuillez fournir un nom de domaine.")
+    
+    subcommand = argv[2]
+        
+        
+    if not is_valid_domain(subcommand):
+        print("Nom de domaine non valide.")
     else:
-        subcommand = argv[2]
-        
-        
-        if not is_valid_domain(subcommand):
-            print("Nom de domaine non valide.")
-        else:
-            try:
+        try:
             
-                ip_address = socket.gethostbyname(subcommand)
-                print(ip_address)
-            except socket.gaierror:
-                print("Erreur lors de la résolution du nom de domaine.")
+            ip_address = socket.gethostbyname(subcommand)
+            print(ip_address)
+        except socket.gaierror:
+            print("Erreur lors de la résolution du nom de domaine.")

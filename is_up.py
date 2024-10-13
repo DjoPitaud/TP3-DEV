@@ -2,19 +2,22 @@ import os
 import re
 from sys import argv
 
-def ip_valid(ip: str) -> bool:
+def ip_valid(addr: str) -> bool:
     
     ip_pattern = re.compile(r"^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\."
                             r"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\."
                             r"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\."
                             r"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
-    return bool(ip_pattern.match(ip))
+    return bool(ip_pattern.match(addr))
 
 
 
-subcommand = argv[2]
+
     
-def is_up():   
+def is_up(): 
+
+    subcommand = argv[2]  
+    
     if not ip_valid(subcommand):
         print("Adresse IP non valide.")
         exit(3)
@@ -26,7 +29,7 @@ def is_up():
         else:
             print("DOWN!")
 
-is_up()
+
     
          
 
