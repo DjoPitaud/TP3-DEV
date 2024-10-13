@@ -32,6 +32,10 @@ def main():
 
         case "ip":
             get_ip.getIp()
+        
+        case _:
+            print("You must input a command (ip, lookup, ping)")
+            exit(1)
 
 if __name__ == "__main__":
     main()
