@@ -72,7 +72,7 @@ def main():
 
         case "ip":
             get_ip.getIp()
-            log_command("ip", argv[2])
+            log_command("ip")
         
         case _:
             print("You must input a command (ip, lookup, ping)")
