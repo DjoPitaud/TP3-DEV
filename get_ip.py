@@ -6,7 +6,7 @@ def getIp():
     
     nic_data = psutil.net_if_addrs()
     for nic_name in nic_data.keys():
-        if nic_name == "Wi-Fi":
+        if nic_name == "Wi-Fi" or "enp0s8":
         
             for addr in nic_data[nic_name]:
                 if addr.family == AF_INET:
@@ -18,5 +18,3 @@ def getIp():
     print(f"{address}/{cidr}")
     print(f"{nb_addr} adresses")
     
-
-
