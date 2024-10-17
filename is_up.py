@@ -1,6 +1,6 @@
 import os
 import re
-from sys import argv
+from sys import argv, platform
 
 def ip_valid(addr: str) -> bool:
     
@@ -22,7 +22,10 @@ def is_up():
         print("Adresse IP non valide.")
         exit(3)
     else:
-        response = os.system(f"ping -n 1 -w 500 {subcommand} > NUL 2>&1")
+        if platform == "win32":
+            response = os.system(f"ping -n 1 -w 500 {subcommand} > NUL 2>&1")
+        else:
+            response = os.system(f"ping -c 1 {subcommand} > NUL 2>&1")
 
         if response == 0:
             print("UP!")
