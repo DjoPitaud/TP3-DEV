@@ -1,7 +1,7 @@
 import socket
 
 # On définit la destination de la connexion
-host = '192.168.56.102'  # IP du serveur
+host = '10.0.2.15'  # IP du serveur
 port = 100               # Port choisir par le serveur
 
 # Création de l'objet socket de type TCP (SOCK_STREAM)
