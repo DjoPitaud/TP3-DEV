@@ -12,7 +12,7 @@ def client():
 
 
 
-    s.sendall(b'SALUT MEC')
+    s.sendall("Meooooo !".encode())
 
 
     data = s.recv(1024)
