@@ -24,3 +24,4 @@ def client():
     print(f"Le serveur a répondu {repr(data)}")
 
 client()
+
