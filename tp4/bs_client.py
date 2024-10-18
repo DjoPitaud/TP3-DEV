@@ -1,8 +1,8 @@
 import socket
 
 # On définit la destination de la connexion
-host = '<IP_du_serveur>'  # IP du serveur
-port = 8888               # Port choisir par le serveur
+host = '192.168.56.102'  # IP du serveur
+port = 100               # Port choisir par le serveur
 
 # Création de l'objet socket de type TCP (SOCK_STREAM)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
