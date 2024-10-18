@@ -3,7 +3,7 @@ import socket
 def server():
 
     host = '' 
-    port = 100 
+    port = 13337 
 
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,7 +31,7 @@ def server():
             print(f"Données reçues du client : {data}")
 
             
-            conn.sendall("Salut mec.")
+            conn.sendall("Hi mate!")
 
         except socket.error:
             print("Error Occured.")
