@@ -39,3 +39,5 @@ def server():
 
 
     conn.close()
+
+server()
