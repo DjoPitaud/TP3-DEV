@@ -10,7 +10,7 @@ def client():
     try:
         s.connect((host, port))
         print(f"Connecté avec succès au serveur {host} sur le port {port}")
-        msg = input('Que veux-tu envoyer au serveur ?')
+        msg = input('Que veux-tu envoyer au serveur ? ')
 
         s.sendall(msg.encode("UTF-8"))
         data = s.recv(1024)

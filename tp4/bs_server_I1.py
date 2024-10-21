@@ -1,7 +1,14 @@
 from sys import exit as sysexit
 import socket
 
-
+def repondre(message):
+    if "meo" in message.lower():
+        return "Meo à toi confrère.".encode("UTF-8")
+    elif "waf" in message.lower():
+        return "ptdr t ki".encode("UTF-8")
+    else:
+        return "Mes respects humble humain.".encode("UTF-8")
+    
 def server():
 
     host = '' 
@@ -17,7 +24,7 @@ def server():
 
     conn, addr = s.accept()
 
-    print('Connected by', addr)
+    print(f"Un client vient de se co et son IP c'est {addr}.")
 
 
     while True:
@@ -33,14 +40,12 @@ def server():
             print(f"Données reçues du client : {data}")
 
             
-            conn.sendall("Hi mate!".encode("UTF-8"))
+            conn.sendall(repondre(data))
             sysexit(0)
 
         except socket.error:
             print("Error Occured.")
             sysexit(2)
 
-
-    conn.close()
 
 server()
