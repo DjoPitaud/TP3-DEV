@@ -6,17 +6,23 @@ def client():
     port = 13337               
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
 
-    s.sendall("Meooooo !".encode("UTF-8"))
-    data = s.recv(1024)
-    if not data: sysexit(1)
-                  
+    try:
+        s.connect((host, port))
+        print(f"Connecté avec succès au serveur {host} sur le port {port}")
+        msg = input('Que veux-tu envoyer au serveur ?')
 
-    
-    print(f"Le serveur a répondu {repr(data)}")
-    sysexit(0)
-    
+        s.sendall(msg.encode("UTF-8"))
+        data = s.recv(1024)
+        if not data: sysexit(1)
+                    
+
+        
+        print(f"Le serveur a répondu {repr(data)}")
+        sysexit(0)
+    except socket.error:
+        print("Error Occured.")
+        sysexit(2)
 
 client()
 
