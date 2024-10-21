@@ -1,13 +1,7 @@
 from sys import exit as sysexit
 import socket
 
-def repondre(message):
-    if "meo" in message.lower():
-        return "Meo à toi confrère.".encode("UTF-8")
-    elif "waf" in message.lower():
-        return "ptdr t ki".encode("UTF-8")
-    else:
-        return "Mes respects humble humain.".encode("UTF-8")
+import reponse
     
 def server():
 
@@ -40,7 +34,7 @@ def server():
             print(f"Données reçues du client : {data}")
 
             
-            conn.sendall(repondre(data))
+            conn.sendall(reponse.repondre(data))
             sysexit(0)
 
         except socket.error:
