@@ -10,8 +10,10 @@ def client():
 
     s.sendall("Meooooo !".encode("UTF-8"))
     data = s.recv(1024)
+    if not data: sysexit(1)
+                  
 
-    s.close()
+    
     print(f"Le serveur a répondu {repr(data)}")
     sysexit(0)
     

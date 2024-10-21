@@ -1,4 +1,6 @@
+from sys import exit as sysexit
 import socket
+
 
 def server():
 
@@ -25,17 +27,18 @@ def server():
             data = conn.recv(1024)
 
         
-            if not data: break
+            if not data: sysexit(1)
 
             
             print(f"Données reçues du client : {data}")
 
             
             conn.sendall("Hi mate!".encode("UTF-8"))
+            sysexit(0)
 
         except socket.error:
             print("Error Occured.")
-            break
+            sysexit(2)
 
 
     conn.close()
