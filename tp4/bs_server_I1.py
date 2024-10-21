@@ -31,7 +31,7 @@ def server():
             print(f"Données reçues du client : {data}")
 
             
-            conn.sendall("Hi mate!".encode())
+            conn.sendall("Hi mate!".encode('UTF-8'))
 
         except socket.error:
             print("Error Occured.")
