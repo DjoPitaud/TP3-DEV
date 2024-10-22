@@ -15,7 +15,7 @@ def client():
         if type(msg) is not str:
             raise TypeError("Ici on veut que des strings !")
         
-        if 'meo' not in msg or 'waf' not in msg:
+        if "meo" or "waf" not in msg:
             raise ValueError("Ici on veut que meo et waf !")
 
         
