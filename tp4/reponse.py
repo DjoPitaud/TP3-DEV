@@ -1,7 +1,7 @@
 def repondre(message):
-    if "meo" in message.lower():
-        return "Meo à toi confrère.".encode("UTF-8")
-    elif "waf" in message.lower():
-        return "ptdr t ki".encode("UTF-8")
+    if b'meo' in message.lower():
+        return "Meo à toi confrère."
+    elif b'waf' in message.lower():
+        return b'ptdr t ki'
     else:
-        return "Mes respects humble humain.".encode("UTF-8")
+        return "Mes respects humble humain."
