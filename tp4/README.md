@@ -35,26 +35,34 @@ Le serveur a répondu b'Hi mate!'
 
 🌞 **`bs_client_I2.py`**
 
-> Vous aurez besoin du [**cours sur la gestion d'erreurs**](../../../../cours/dev/error_handling/README.md) pour cette partie.
-
-- retour visuel
-  - afficher un message de succès chez le client quand il se co au serveur
-  - le message doit être : `Connecté avec succès au serveur <IP_SERVER> sur le port <PORT>`
-  - vous utiliserez un `try` `except` pour savoir si la connexion est correctement effectuée
-- le programme doit permettre à l'utilisateur d'envoyer la string qu'il veut au serveur
-  - on peut récupérer un input utilisateur avec la fonction `input()` en Python
-  - au lancement du programme, un prompt doit apparaître pour indiquer à l'utilisateur qu'il peut envoyer une string au serveur :
-    - `Que veux-tu envoyer au serveur : `
+```
+[djo@client tp4]$ python bs_client_I1.py
+Connecté avec succès au serveur 192.168.56.102 sur le port 13337
+Que veux-tu envoyer au serveur ? meo
+Le serveur a répondu 'Meo à toi confrère.'
+[djo@client tp4]$ python bs_client_I1.py
+Connecté avec succès au serveur 192.168.56.102 sur le port 13337
+Que veux-tu envoyer au serveur ? waf
+Le serveur a répondu 'ptdr t ki'
+[djo@client tp4]$ python bs_client_I1.py
+Connecté avec succès au serveur 192.168.56.102 sur le port 13337
+Que veux-tu envoyer au serveur ? bonjour
+Le serveur a répondu 'Mes respects humble humain.'
+```
 
 🌞 **`bs_server_I2.py`**
 
-- retour visuel
-  - afficher un message quand un client se co
-  - le message doit être : `Un client vient de se co et son IP c'est <CLIENT_IP>.`
-- réponse adaptative
-  - si le message du client contient "meo" quelque part, répondre : `Meo à toi confrère.`
-  - si le message du client contient "waf" quelque part, répondre : `ptdr t ki`
-  - si le message du client ne contient PAS "meo", ni "waf", répondre : `Mes respects humble humain.`
+```
+[djo@serveur tp4]$ python bs_server_I1.py
+Un client vient de se co et son IP c'est ('192.168.56.2', 35284).
+Données reçues du client : meo
+[djo@serveur tp4]$ python bs_server_I1.py
+Un client vient de se co et son IP c'est ('192.168.56.2', 52464).
+Données reçues du client : waf
+[djo@serveur tp4]$ python bs_server_I1.py
+Un client vient de se co et son IP c'est ('192.168.56.2', 34336).
+Données reçues du client : bonjour
+```
 
 ## 3. You say client I hear control
 
