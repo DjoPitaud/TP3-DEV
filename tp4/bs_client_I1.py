@@ -15,8 +15,9 @@ def client():
         if type(msg) is not str:
             raise TypeError("Ici on veut que des strings !")
         
-        if not 'meo' or 'waf'  in msg:
+        if 'meo' not in msg or 'waf' not in msg:
             raise ValueError("Ici on veut que meo et waf !")
+
         
         s.sendall(msg.encode("UTF-8"))
         data = s.recv(1024).decode("UTF-8")
