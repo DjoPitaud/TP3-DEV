@@ -25,7 +25,7 @@ def server():
 
         try:
             
-            data = conn.recv(1024)
+            data = conn.recv(1024).decode("UTF-8")
 
         
             if not data: sysexit(1)

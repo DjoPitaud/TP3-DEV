@@ -13,7 +13,7 @@ def client():
         msg = input('Que veux-tu envoyer au serveur ? ')
 
         s.sendall(msg.encode("UTF-8"))
-        data = s.recv(1024)
+        data = s.recv(1024).decode("UTF-8")
         if not data: sysexit(1)
                     
 
