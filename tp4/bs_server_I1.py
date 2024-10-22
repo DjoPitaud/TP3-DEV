@@ -34,7 +34,7 @@ def server():
             print(f"Données reçues du client : {data}")
 
             
-            conn.sendall(reponse.repondre(data).encode("UTF-8"))
+            conn.sendall(reponse.repondre(data))
             sysexit(0)
 
         except socket.error:
