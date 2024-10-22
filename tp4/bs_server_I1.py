@@ -35,7 +35,7 @@ def server():
 
             
             conn.sendall(reponse.repondre(data))
-            sysexit(0)
+            
             s.close()
 
         except socket.error:
