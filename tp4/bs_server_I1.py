@@ -36,11 +36,12 @@ def server():
             
             conn.sendall(reponse.repondre(data))
             sysexit(0)
+            s.close()
 
         except socket.error:
             print("Error Occured.")
             sysexit(2)
-        s.close()
+        
 
 
 server()
