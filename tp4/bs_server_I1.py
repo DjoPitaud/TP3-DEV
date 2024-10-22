@@ -40,6 +40,7 @@ def server():
         except socket.error:
             print("Error Occured.")
             sysexit(2)
+        s.close()
 
 
 server()

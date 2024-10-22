@@ -23,6 +23,7 @@ def client():
     except socket.error:
         print("Error Occured.")
         sysexit(2)
+    s.close()
 
 client()
 
