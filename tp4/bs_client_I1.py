@@ -12,6 +12,12 @@ def client():
         print(f"Connecté avec succès au serveur {host} sur le port {port}")
         msg = input('Que veux-tu envoyer au serveur ? ')
 
+        if type(msg) is not str:
+            raise TypeError("Ici on veut que des strings !")
+        
+        if 'meo' or 'waf' in msg :
+            raise ValueError("Ici on veut que meo et waf !")
+        
         s.sendall(msg.encode("UTF-8"))
         data = s.recv(1024).decode("UTF-8")
         if not data: sysexit(1)
