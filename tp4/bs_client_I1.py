@@ -10,7 +10,7 @@ def client():
     try:
         s.connect((host, port))
         print(f"Connecté avec succès au serveur {host} sur le port {port}")
-        msg = input('Que veux-tu envoyer au serveur ? ')
+        msg = str(input('Que veux-tu envoyer au serveur ? '))
 
         if type(msg) is not str:
             raise TypeError("Ici on veut que des strings !")
