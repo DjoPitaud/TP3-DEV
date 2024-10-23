@@ -69,14 +69,27 @@ Données reçues du client : bonjour
 On va ajouter un peu de contrôle pour éviter que notre client fasse nawak à l'utilisation du programme.
 
 🌞 **`bs_client_I3.py`**
+- Pour le `type()`
+```
+if type(msg) is not str:
+            raise TypeError("Ici on veut que des strings !")
+```
+- Pour l'expression régulière:
+  - Création d'un fichier `re_verif.py`
 
-- vérifier que...
-  - le client saisit bien une string
-    - utilisez la méthode native `type()` pour vérifier que c'est une string
-  - que la string saisie par le client contient obligatoirement soit "waf" soit "meo"
-    - utilisez **une expression régulière**
-- sinon lever une erreur avec `raise`
-  - choisissez avec pertinence l'erreur à lever dans les deux cas (s'il saisit autre chose qu'une string, ou si ça contient aucun des deux mots)
-  - y'a un lien vers la liste des exceptions natives (choisissez-en une donc) tout en bas du [cours sur la gestion d'erreur](../../../../cours/dev/error_handling/README.md)
+```
+import re
 
-> On poussera le contrôle de saisie plus loin plus tard.
+def verifier_msg(msg):
+    
+    pattern = r"(waf|meo)"
+    
+    return bool(re.search(pattern, msg))
+```
+```
+import re_verif
+
+elif re_verif.verifier_msg(msg) is False:
+            raise ValueError("Ici on veut que meo et waf !")
+```
+
