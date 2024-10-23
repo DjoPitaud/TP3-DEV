@@ -1,6 +1,8 @@
 from sys import exit as sysexit
 import socket
 
+import re_verif
+
 def client():
     host = '192.168.56.102'  
     port = 13337               
@@ -15,7 +17,7 @@ def client():
         if type(msg) is not str:
             raise TypeError("Ici on veut que des strings !")
         
-        elif not "meo" in msg and not "waf"  in msg:
+        elif re_verif.verifier_msg(msg) is False:
             raise ValueError("Ici on veut que meo et waf !")
 
         
@@ -30,7 +32,7 @@ def client():
     except socket.error:
         print("Error Occured.")
         sysexit(2)
-    s.close()
+    
 
 client()
 
