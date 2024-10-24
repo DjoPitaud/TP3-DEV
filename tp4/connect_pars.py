@@ -19,7 +19,8 @@ def connect_port():
     port = args.port
 
     verif_port.port_valid(port)
+    print(type(port))
     
-
+connect_port()
 
 
