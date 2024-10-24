@@ -14,7 +14,7 @@ def connect_port():
         "--port",
         type=int,
         default=13337,
-        help="Spécifiez le numéro de port (entre 0 et 65535)",
+        help="usage: [file] [option] [argument] \n -p, --port Spécifiez le numéro de port (entre 0 et 65535)",
     )
 
     args = parser.parse_args()

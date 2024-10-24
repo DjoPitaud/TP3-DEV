@@ -3,11 +3,11 @@ import socket
 
 from reponse import repondre
 from connect_pars import connect_port
-
+from connect_ip import connect_ip
 
 def server():
     
-    host = ""
+    host = connect_ip()
     port = connect_port()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
