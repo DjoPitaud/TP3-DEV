@@ -24,5 +24,4 @@ def ip_exist(ip):
                     address = addr.address
     if not ip == address:
         return False
-    return True                
-    
+    return True   
