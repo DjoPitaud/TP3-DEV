@@ -2,8 +2,8 @@ from sys import exit as sysexit
 import socket
 
 from reponse import repondre
-from connect_pars import connect_port
 from connect_ip import connect_ip
+from connect_pars import connect_port
 
 def server():
     
