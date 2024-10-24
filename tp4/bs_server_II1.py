@@ -1,17 +1,18 @@
 from sys import exit as sysexit
 import socket
 
-import reponse
+from reponse import repondre
+from connect_pars import connect_port
 
 
 def server():
-
+    
     host = ""
-    port = 13337
+    
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    s.bind((host, port))
+    s.bind((host, connect_port()))
 
     s.listen(1)
 
@@ -30,7 +31,7 @@ def server():
 
             print(f"Données reçues du client : {data}")
 
-            conn.sendall(reponse.repondre(data))
+            conn.sendall(repondre(data))
 
             s.close()
 
