@@ -8,7 +8,7 @@ from connect_pars import connect_port
 def server():
     
     host = ""
-    port = connect_port()
+    port = int(connect_port())
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
