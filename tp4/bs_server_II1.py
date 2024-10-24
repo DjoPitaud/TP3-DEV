@@ -8,11 +8,11 @@ from connect_pars import connect_port
 def server():
     
     host = ""
-    
+    port = connect_port()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    s.bind((host, connect_port()))
+    s.bind((host,port))
 
     s.listen(1)
 
