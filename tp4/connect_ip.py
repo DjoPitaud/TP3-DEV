@@ -6,15 +6,15 @@ from verif_ip import ip_exist
 
 def connect_ip():
 
-    parser = argparse.ArgumentParser(description="arguments d'ip")
+    parser_ip = argparse.ArgumentParser(description="arguments d'ip")
 
-    parser.add_argument(
+    parser_ip.add_argument(
         "-l",
         "--listen",
         help="usage: [file] [option] [argument] \n -l, --listen  Spécifiez l'ip ",
     )
 
-    args = parser.parse_args()
+    args = parser_ip.parse_args()
 
     if not ip_valid(args.listen) == True:
         print("ERROR -l argument invalide. L'adresse <ADRESSE> n'est pas une adresse IP valide.")

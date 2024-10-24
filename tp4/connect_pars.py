@@ -7,9 +7,9 @@ from verif_port import port_private
 
 def connect_port():
 
-    parser = argparse.ArgumentParser(description="arguments de port")
+    parser_port = argparse.ArgumentParser(description="arguments de port")
 
-    parser.add_argument(
+    parser_port.add_argument(
         "-p",
         "--port",
         type=int,
@@ -17,7 +17,7 @@ def connect_port():
         help="usage: [file] [option] [argument] \n -p, --port Spécifiez le numéro de port (entre 0 et 65535)",
     )
 
-    args = parser.parse_args()
+    args = parser_port.parse_args()
 
     if not port_valid(args.port) == True:
         print(
@@ -35,5 +35,3 @@ def connect_port():
 
     return port
 
-
-connect_port()
