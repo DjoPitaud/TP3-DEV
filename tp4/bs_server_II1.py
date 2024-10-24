@@ -8,7 +8,7 @@ from connect_pars import connect_port
 def server():
     
     host = ""
-    port = int(connect_port())
+    port = connect_port()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -18,7 +18,7 @@ def server():
 
     conn, addr = s.accept()
 
-    print(f"Un client vient de se co et son IP c'est {addr}.")
+    print(f"Un client vient de se co et son IP c'est {addr[0]}")
 
     while True:
 

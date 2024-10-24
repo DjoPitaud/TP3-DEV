@@ -17,7 +17,7 @@ def server():
 
     conn, addr = s.accept()
 
-    print(f"Un client vient de se co et son IP c'est {addr[0]}.")
+    print(f"Un client vient de se co et son IP c'est {addr[0]}")
 
     while True:
 
