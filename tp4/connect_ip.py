@@ -25,6 +25,5 @@ def connect_ip():
         sysexit(4)
 
     host = args.listen
-    print(host)
-    #return host
-connect_ip()
+    
+    return host
