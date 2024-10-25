@@ -1,29 +1,21 @@
 import argparse
 from sys import exit as sysexit
 
+from parse import parse_arg
 from verif_ip import ip_valid
 from verif_ip import ip_exist
 
 def connect_ip():
 
-    parser_ip = argparse.ArgumentParser(description="arguments d'ip")
+    ip = parse_arg()[0]
 
-    parser_ip.add_argument(
-        "-l",
-        "--listen",
-        help="usage: [file] [option] [argument] \n -l, --listen  Spécifiez l'ip ",
-    )
-
-    args = parser_ip.parse_args()
-
-    if not ip_valid(args.listen) == True:
+    if not ip_valid(ip) == True:
         print("ERROR -l argument invalide. L'adresse <ADRESSE> n'est pas une adresse IP valide.")
         sysexit(3)
 
-    elif not ip_exist(args.listen) == True:
+    elif not ip_exist(ip) == True:
         print("ERROR -l argument invalide. L'adresse <ADRESSE> n'est pas l'une des adresses IP de cette machine.")
         sysexit(4)
 
-    host = args.listen
     
-    return host
+    return ip
