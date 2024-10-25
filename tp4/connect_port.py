@@ -1,4 +1,3 @@
-import argparse
 from sys import exit as sysexit
 
 from parse import parse_arg
@@ -8,7 +7,6 @@ from verif_port import port_private
 
 def connect_port():
 
-    
     port = parse_arg()[1]
 
     if not port_valid(port) == True:
@@ -23,8 +21,4 @@ def connect_port():
         )
         sysexit(2)
 
-    
-    
     return port
-
-

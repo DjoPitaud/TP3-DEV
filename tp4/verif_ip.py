@@ -13,15 +13,16 @@ def ip_valid(addr: str) -> bool:
     )
     return bool(ip_pattern.match(addr))
 
+
 def ip_exist(ip):
-    
+
     nic_data = net_if_addrs()
     for nic_name in nic_data.keys():
         if nic_name == "Wi-Fi" or "enp0s8":
-        
+
             for addr in nic_data[nic_name]:
                 if addr.family == AF_INET:
                     address = addr.address
     if not ip == address:
         return False
-    return True   
+    return True

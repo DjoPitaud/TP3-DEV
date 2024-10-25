@@ -1,10 +1,10 @@
 from sys import exit as sysexit
 import socket
 
-import reponse
+from reponse import repondre
 
 
-def server():
+def main():
 
     host = ""
     port = 13337
@@ -30,7 +30,7 @@ def server():
 
             print(f"Données reçues du client : {data}")
 
-            conn.sendall(reponse.repondre(data))
+            conn.sendall(repondre(data))
 
             s.close()
 
@@ -39,4 +39,6 @@ def server():
             sysexit(2)
 
 
-server()
+if __name__ == "__main__":
+    main()
+# 8.70/10 pylint

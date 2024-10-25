@@ -1,5 +1,6 @@
 import argparse
 
+
 def parse_arg():
     parser = argparse.ArgumentParser(description="arguments d'ip")
 
