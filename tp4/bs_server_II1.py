@@ -5,14 +5,15 @@ from reponse import repondre
 from connect_ip import connect_ip
 from connect_port import connect_port
 
-def server():
-    
+
+def main():
+
     host = connect_ip()
     port = connect_port()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    s.bind((host,port))
+    s.bind((host, port))
 
     s.listen(1)
 
@@ -39,5 +40,5 @@ def server():
             print("Error Occured.")
             sysexit(2)
 
-
-server()
+if __name__ == "__main__":
+    main()
