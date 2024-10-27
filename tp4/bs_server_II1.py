@@ -5,7 +5,10 @@ import time
 from reponse import repondre
 from connect_ip import connect_ip
 from connect_port import connect_port
-from couleur import colors
+
+jaune = "\033[33m"
+blanc = "\033[37m"
+reset = "\033[0m"
 
 logger = logging.getLogger("logs")
 logger.setLevel(20)
