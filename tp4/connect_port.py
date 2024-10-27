@@ -11,13 +11,13 @@ def connect_port():
 
     if not port_valid(port) == True:
         print(
-            "ERROR -p argument invalide. Le port spécifié <PORT> n'est pas un port valide (de 0 à 65535)."
+            f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535)."
         )
         sysexit(1)
 
     elif not port_private(port) == True:
         print(
-            "ERROR -p argument invalide. Le port spécifié <PORT> est un port privilégié. Spécifiez un port au dessus de 1024."
+            f"ERROR -p argument invalide. Le port spécifié {port} est un port privilégié. Spécifiez un port au dessus de 1024."
         )
         sysexit(2)
 

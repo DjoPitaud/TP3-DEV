@@ -11,13 +11,13 @@ def connect_ip():
 
     if not ip_valid(ip) == True:
         print(
-            "ERROR -l argument invalide. L'adresse <ADRESSE> n'est pas une adresse IP valide."
+            f"ERROR -l argument invalide. L'adresse {ip} n'est pas une adresse IP valide."
         )
         sysexit(3)
 
     elif not ip_exist(ip) == True:
         print(
-            "ERROR -l argument invalide. L'adresse <ADRESSE> n'est pas l'une des adresses IP de cette machine."
+            f"ERROR -l argument invalide. L'adresse {ip} n'est pas l'une des adresses IP de cette machine."
         )
         sysexit(4)
 
