@@ -65,18 +65,19 @@ def main():
                 logger.info(f"Le client {addr[0]} a envoyé "f"{data}"".")
 
                 conn.sendall(repondre(data))
-                send_msg = repondre(data)
+                send_msg = repondre(data).decode("UTF-8")
 
                 logger.info(f"Réponse envoyée au client <{addr[0]} : "f"{send_msg}"".")
 
                 start_time = time.time()
-                s.close()
+            
 
             elapsed_time = time.time() - start_time
             if elapsed_time >= fin_timer:
                 logger.warning("Aucun client depuis plus d'une minute.")
                 start_time = time.time()
-
+            s.close()
+            
         except socket.error:
             print("Error Occured.")
             sysexit(2)
