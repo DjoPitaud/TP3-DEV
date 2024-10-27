@@ -45,7 +45,8 @@ def main():
     s.listen(1)
     
     logger.info(f"Le serveur tourne sur {host}:{port}")
-
+    start_time = time.time()
+    fin_timer = 10
 
     conn, addr = s.accept()
     logger.info(f"Un client {addr[0]} s'est connecté.")
@@ -55,8 +56,7 @@ def main():
         try:
 
             data = conn.recv(1024).decode("UTF-8")
-            start_time = time.time()
-            fin_timer = 60 
+             
 
             if not data:
                 passed_time = time.time() - start_time
