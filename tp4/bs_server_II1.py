@@ -48,7 +48,7 @@ def main():
 
 
     conn, addr = s.accept()
-
+    logger.info(f"Un client {addr[0]} s'est connecté.")
 
     while True:
 
@@ -63,9 +63,9 @@ def main():
                 if passed_time >= fin_timer:
                     logger.warning("Aucun client depuis plus d'une minute.")
                     start_time = time.time()
-                    break
+                sysexit(1)
                 
-            logger.info(f"Un client {addr[0]} s'est connecté.")
+            
             logger.info(f"Le client {addr[0]} a envoyé "f"{data}"".")
 
             conn.sendall(repondre(data))
@@ -73,12 +73,9 @@ def main():
 
             logger.info(f"Réponse envoyée au client <{addr[0]} : "f"{send_msg}"".")
 
-            
             s.close()
 
             
-            
-
         except socket.error:
             print("Error Occured.")
             sysexit(2)
