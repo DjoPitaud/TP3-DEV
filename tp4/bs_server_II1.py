@@ -49,22 +49,21 @@ def main():
 
     conn, addr = s.accept()
 
-    
-
-    start_time = time.time()
-    fin_timer = 60 
 
     while True:
 
         try:
 
             data = conn.recv(1024).decode("UTF-8")
+            start_time = time.time()
+            fin_timer = 60 
 
             if not data:
-                elapsed_time = time.time() - start_time
-                if elapsed_time >= fin_timer:
+                passed_time = time.time() - start_time
+                if passed_time >= fin_timer:
                     logger.warning("Aucun client depuis plus d'une minute.")
                     start_time = time.time()
+                    break
                 
             logger.info(f"Un client {addr[0]} s'est connecté.")
             logger.info(f"Le client {addr[0]} a envoyé "f"{data}"".")
