@@ -5,7 +5,7 @@ import time
 from reponse import repondre
 from connect_ip import connect_ip
 from connect_port import connect_port
-from color import colors
+from couleur import colors
 
 logger = logging.getLogger("logs")
 logger.setLevel(20)
