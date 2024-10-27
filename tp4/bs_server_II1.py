@@ -15,8 +15,8 @@ logger.setLevel(20)
 console_handler = logging.StreamHandler()  
 logger.addHandler(console_handler)
 
-logging.addLevelName(logging.WARNING, f"{colors[0]}WARN{colors[2]}")
-logging.addLevelName(logging.INFO, f"{colors[1]}INFO{colors[2]}")
+logging.addLevelName(logging.WARNING, f"{jaune}WARN{reset}")
+logging.addLevelName(logging.INFO, f"{blanc}INFO{reset}")
 
 
 file_handler = logging.FileHandler("/var/log/bs_server/bs_server.log", mode="a", encoding="utf-8")
