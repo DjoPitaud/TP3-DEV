@@ -45,7 +45,7 @@ def main():
 
     conn, addr = s.accept()
 
-    logger.info(f"Un client {addr[0]} s'est connecté.")
+    
 
     start_time = time.time()
     fin_timer = 60 
@@ -57,7 +57,7 @@ def main():
             data = conn.recv(1024).decode("UTF-8")
 
             if  data:
-                
+                logger.info(f"Un client {addr[0]} s'est connecté.")
                 logger.info(f"Le client {addr[0]} a envoyé "f"{data}"".")
 
                 conn.sendall(repondre(data))
