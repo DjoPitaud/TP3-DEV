@@ -45,39 +45,44 @@ def main():
     s.listen(1)
     
     logger.info(f"Le serveur tourne sur {host}:{port}")
-    start_time = time.time()
-    fin_timer = 10
 
-    conn, addr = s.accept()
-    logger.info(f"Un client {addr[0]} s'est connecté.")
+    start_time = time.time()
+    fin_timer = 60  
 
     while True:
-
         try:
-
-            data = conn.recv(1024).decode("UTF-8")
-             
-
-            if not data:
-                passed_time = time.time() - start_time
-                if passed_time >= fin_timer:
-                    logger.warning("Aucun client depuis plus d'une minute.")
-                    start_time = time.time()
-                sysexit(1)
+            
+            s.settimeout(1)
+            try:
+                conn, addr = s.accept()
+                logger.info(f"Un client {addr[0]} s'est connecté.")
+                start_time = time.time()  
+            except socket.timeout:
                 
-            
-            logger.info(f"Le client {addr[0]} a envoyé "f"{data}"".")
-
-            conn.sendall(repondre(data))
-            send_msg = repondre(data).decode("UTF-8")
-
-            logger.info(f"Réponse envoyée au client <{addr[0]} : "f"{send_msg}"".")
-
-            s.close()
+                if time.time() - start_time >= fin_timer:
+                    logger.warning("Aucun client depuis plus d'une minute.")
+                    start_time = time.time() 
+                continue
 
             
+            data = conn.recv(1024).decode("UTF-8")
+            if not data:
+                logger.info("Le client a fermé la connexion.")
+                conn.close()
+                continue
+            
+            logger.info(f"Le client {addr[0]} a envoyé {data}.")
+            
+            response = repondre(data)
+            conn.sendall(response)
+            send_msg = response.decode("UTF-8")
+            logger.info(f"Réponse envoyée au client <{addr[0]}> : {send_msg}.")
+            
+            conn.close() 
+
         except socket.error:
-            print("Error Occured.")
+            logger.error("Une erreur est survenue avec la connexion.")
+            s.close()
             sysexit(2)
 
 
