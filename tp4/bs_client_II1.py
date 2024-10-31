@@ -24,6 +24,7 @@ NC = "\033[0m"
 logger = logging.getLogger("logs")
 logger.setLevel(20)
 console_handler = logging.StreamHandler()
+console_handler.setLevel(40)
 logger.addHandler(console_handler)
 
 logging.addLevelName(logging.ERROR, f"{RED}ERROR{NC}")
@@ -41,7 +42,13 @@ formatter = logging.Formatter(
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
-console_handler.setFormatter(formatter)
+formatter_console = logging.Formatter(
+    "{levelname} - {message}",
+    style="{",
+    
+)
+
+console_handler.setFormatter(formatter_console)
 file_handler.setFormatter(formatter)
 
 def client():
@@ -55,26 +62,28 @@ def client():
 
     try:
         s.connect((host, port))
-        print(f"Connecté avec succès au serveur {host} sur le port {port}")
-        msg = str(input('Que veux-tu envoyer au serveur ? '))
+        logger.info(f"Connecté avec succès au serveur {host} sur le port {port}")
+        input_client = str(input('Que veux-tu envoyer au serveur ? '))
 
-        if type(msg) is not str:
+        if type(input_client) is not str:
             raise TypeError("Ici on veut que des strings !")
         
-        elif verifier_msg(msg) is False:
+        elif verifier_msg(input_client) is False:
             raise ValueError("Ici on veut que meo et waf !")
 
-        
-        s.sendall(msg.encode("UTF-8"))
+        msg = input_client.encode("UTF-8")
+        s.sendall(msg)
+        send_msg = msg.decode("UTF-8")
+        logger.info(f"Message envoyé au serveur <{host}> : <{send_msg}>")
         data = s.recv(1024).decode("UTF-8")
         if not data: sysexit(1)
                     
 
         
-        print(f"Le serveur a répondu {repr(data)}")
+        logger.info(f"Le serveur a répondu {repr(data)}")
         sysexit(0)
     except socket.error:
-        print("Error Occured.")
+        logger.error(f"Impossible de se connecter au serveur <{host}> sur le port <{port}>..")
         sysexit(2)
     
 
