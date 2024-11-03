@@ -74,7 +74,7 @@ def main():
 
             logger.info(f"Le client {addr[0]} a envoyé {data}.")
 
-            response = calculatrice(data)
+            response = str(calculatrice(data)).encode("UTF-8")
             conn.sendall(response)
             send_msg = response.decode("UTF-8")
             logger.info(f"Réponse envoyée au client <{addr[0]}> : {send_msg}.")
