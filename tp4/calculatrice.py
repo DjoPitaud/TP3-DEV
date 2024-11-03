@@ -30,7 +30,7 @@ def calculatrice(request):
                         
                         if operator_symbol in OPERATIONS:
                             result = OPERATIONS[operator_symbol](left, right)
-                            return print(result)
+                            return result
                         else:
                             raise ValueError("Opérateur non supporté.")
                     except (ValueError, ZeroDivisionError) as e:
@@ -44,4 +44,4 @@ def calculatrice(request):
     else:
         raise TypeError("Nice try vilain hacker.")
    
-calculatrice("100 / 3")
+
