@@ -3,8 +3,6 @@ from os import path, makedirs
 import socket
 import logging
 
-from re_verif import verifier_msg
-
 
 TEMP_DIR = "/tmp/bs_clientII"
 
@@ -68,8 +66,6 @@ def client():
         if type(input_client) is not str:
             raise TypeError("Ici on veut que des strings !")
         
-        elif verifier_msg(input_client) is False:
-            raise ValueError("Ici on veut que meo et waf !")
 
         msg = input_client.encode("UTF-8")
         s.sendall(msg)
