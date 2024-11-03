@@ -75,7 +75,7 @@ def client():
         if not data: sysexit(1)
                     
 
-        
+        print(f"le résultat est {data}.")
         logger.info(f"Le serveur a répondu {repr(data)}")
         sysexit(0)
     except socket.error:
