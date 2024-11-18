@@ -12,4 +12,3 @@ async def process_url(url):
         await async_write_content_in_file(content, output_file)
     except Exception as e:
         print(f"Failed to process URL {url}: {e}")
-
