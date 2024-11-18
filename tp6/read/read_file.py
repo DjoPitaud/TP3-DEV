@@ -2,7 +2,7 @@
 
 from sys import exit as sysexit
 
-path_file = "home/djo/documents/liste_urls"
+path_file = "/home/djo/documents/liste_urls"
 
 def read_file(input_file):
     """Function printing python version."""
