@@ -20,12 +20,13 @@ def main():
     if not exists(input_file):
         print(f"Error: File '{input_file}' does not exist.")
         sysexit(1)
-    urls = read_file(input_file)
+    urls = read_file(input_file)[0]
+    urls_path = read_file(input_file)[1]
 
     for url in urls:
         try:
             content = get_content(url)
-            output_file = f"/tmt/web_{url}"
+            output_file = f"/tmt/web_{urls_path}"
             write_content_in_file(content, output_file)
             print(f"Content saved to: {output_file}")
         except Exception as e:
