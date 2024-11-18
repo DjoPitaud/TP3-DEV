@@ -2,7 +2,7 @@
 
 from sys import exit as sysexit
 
-input_file = "home/djo/documents/liste_urls"
+path_file = "home/djo/documents/liste_urls"
 
 def read_file(input_file):
     """Function printing python version."""
@@ -15,4 +15,4 @@ def read_file(input_file):
         print(f"No URLs found in '{input_file}'. Exiting.")
         sysexit(1)
 
-read_file()
+read_file(path_file)
