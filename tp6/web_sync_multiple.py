@@ -24,7 +24,7 @@ def main():
 
     for url in urls:
         try:
-            content = get_content(f"https//{url}")
+            content = get_content(url)
             output_file = f"/tmt/web_{url}"
             write_content_in_file(content, output_file)
             print(f"Content saved to: {output_file}")
