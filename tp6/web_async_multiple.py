@@ -6,8 +6,7 @@ import time
 
 import asyncio
 
-from wrtite.async_write_content import async_write_content_in_file
-from get.async_get_content import async_get_content
+from process.process_url import process_url
 from read.read_file import read_file
 
 
@@ -27,16 +26,9 @@ async def main():
         sysexit(1)
     urls = read_file(input_file)
 
-    for url in urls:
-        try:
-            content = await async_get_content(url)
-            output_file = f"/tmp/web_{url.replace('https://', '')}"
-            await async_write_content_in_file(content, output_file)
+    tasks = [process_url(url) for url in urls]
 
-        except Exception as e:
-            print(f"Failed to process URL {url}: {e}")
-    
-    await asyncio.gather( async_get_content, async_write_content_in_file)
+    await asyncio.gather(*tasks)
 
     end_time = time.time()
     elapsed_time = end_time - start_time
