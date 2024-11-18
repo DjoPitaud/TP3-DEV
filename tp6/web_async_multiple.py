@@ -22,7 +22,7 @@ async def main():
 
     input_file = argv[1]
 
-    if not await exists(input_file):
+    if not exists(input_file):
         print(f"Error: File '{input_file}' does not exist.")
         sysexit(1)
     urls = read_file(input_file)
@@ -36,7 +36,7 @@ async def main():
         except Exception as e:
             print(f"Failed to process URL {url}: {e}")
     
-    await asyncio.gather( exists, async_get_content, async_write_content_in_file)
+    await asyncio.gather( async_get_content, async_write_content_in_file)
 
     end_time = time.time()
     elapsed_time = end_time - start_time
