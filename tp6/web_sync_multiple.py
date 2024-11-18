@@ -25,7 +25,7 @@ def main():
     for url in urls:
         try:
             content = get_content(url)
-            output_file = f"/tmt/web_{url}"
+            output_file = f"/tmt/web_{url.replace("https://", "")}"
             write_content_in_file(content, output_file)
             print(f"Content saved to: {output_file}")
         except Exception as e:
