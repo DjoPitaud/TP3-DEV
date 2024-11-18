@@ -2,11 +2,13 @@
 
 from sys import exit as sysexit, argv
 
-from wrtite.write_content import write_content_in_file
-from get.get_content import get_content
+import asyncio
+
+from wrtite.async_write_content import async_write_content_in_file
+from get.async_get_content import async_get_content
 
 
-def main():
+async def main():
     """Function printing python version."""
 
     if not argv[1]:
@@ -16,9 +18,9 @@ def main():
     url = argv[1]
     output_file = "/tmp/web_page"
 
-    content = get_content(url)
-    write_content_in_file(content, output_file)
+    content = await async_get_content(url)
+    await async_write_content_in_file(content, output_file)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
