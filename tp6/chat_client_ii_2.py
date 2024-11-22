@@ -5,11 +5,11 @@ async def tcp_echo_client(message):
         '192.168.56.102', 8888)
 
     print(f'Send: {message!r}')
-    writer.write(message.encode())
+    writer.write(message.encode("UTF-8"))
     await writer.drain()
 
     data = await reader.read(1024)
-    print(f'Received: {data.decode()!r}')
+    print(f'Received: {data.decode("UTF-8")!r}')
 
     print('Close the connection')
     writer.close()
