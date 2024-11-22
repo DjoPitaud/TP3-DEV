@@ -11,8 +11,12 @@ async def async_receive(reader):
     
     while True:
         data = await reader.read(1024)
-        
-        print(f"Message du serveur : {data.decode('UTF-8')}")
+        if data:
+            print(f"Message du serveur : {data.decode('UTF-8')}")
+        else:
+            
+            print("Connexion au serveur fermée.")
+            break
         
 
 async def handle_user_input(queue, writer):
