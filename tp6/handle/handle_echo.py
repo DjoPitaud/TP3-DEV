@@ -2,12 +2,12 @@
 async def handle_echo(reader, writer):
     data = await reader.read(1024)
     response = data.decode("UTF-8")
-    addr = writer.get_extra_info('peername')
+    addr = writer.get_extra_info('client')
 
     print(f"Received {response!r} from {addr!r}")
 
     
-    writer.write(f"hello {addr!r}")
+    writer.write(f"hello {addr!r}".encode("utf-8"))
     await writer.drain()
 
     print("Close the connection")
