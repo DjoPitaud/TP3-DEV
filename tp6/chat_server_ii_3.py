@@ -1,6 +1,6 @@
 import asyncio
 
-from handle.handle_echo import handle_echo
+from handle.handle_echo2 import handle_echo
 
 
 async def main():
